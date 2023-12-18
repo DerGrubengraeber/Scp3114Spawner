@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Exiled.API.Features;
@@ -34,7 +34,7 @@ namespace Scp3114Spawner___EXILED
                     TBC = new List<Player>(Player.Get(PlayerRoles.Team.ClassD));
                     ChangePlayer(TBC[rndN]);
                 }
-                else if (!config.SpawnOnTop)
+                else
                 {
                     TBC = new List<Player>(Player.Get(PlayerRoles.Team.SCPs));
                     ChangePlayer(TBC[rndN]);
