@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Exiled.API.Features;
+using CedMod.Addons.Events;
 
 namespace Scp3114Spawner___EXILED
 {
@@ -25,19 +26,22 @@ namespace Scp3114Spawner___EXILED
         }
 
         public void RoundStart()
-        {
-            if(Player.List.Count >= config.MinPlayers && rnd.Next(0, 100) <= config.SpawnChance)
+        {   
+            if (EventManager.CurrentEvent == null)
             {
-                rndN = rnd.Next(0, Player.Get(PlayerRoles.Team.SCPs).Count());
-                if(config.SpawnOnTop && Player.List.Count >= config.MinPlayersForOnTop)
+                if (Player.List.Count >= config.MinPlayers && rnd.Next(0, 100) <= config.SpawnChance)
                 {
-                    TBC = new List<Player>(Player.Get(PlayerRoles.Team.ClassD));
-                    ChangePlayer(TBC[rndN]);
-                }
-                else
-                {
-                    TBC = new List<Player>(Player.Get(PlayerRoles.Team.SCPs));
-                    ChangePlayer(TBC[rndN]);
+                    rndN = rnd.Next(0, Player.Get(PlayerRoles.Team.SCPs).Count());
+                    if (config.SpawnOnTop && Player.List.Count >= config.MinPlayersForOnTop)
+                    {
+                        TBC = new List<Player>(Player.Get(PlayerRoles.Team.ClassD));
+                        ChangePlayer(TBC[rndN]);
+                    }
+                    else
+                    {
+                        TBC = new List<Player>(Player.Get(PlayerRoles.Team.SCPs));
+                        ChangePlayer(TBC[rndN]);
+                    }
                 }
             }
         }
