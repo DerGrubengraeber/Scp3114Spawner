@@ -1,3 +1,7 @@
+# IMPORTANT UPDATE
+As of the 22.12.2024 this plugin does not work anymore. Update 14.0 removed skeleton from the game entirely and it is not possible to return it with Plugins anymore.
+Should Northwood decide to add Skeleton back in a similar way i will update this Plugin.
+
 # SCP-3114 Spawner
 This Plugin adds SCP-3114 (The Skeleton) to the spawn queue.
 
